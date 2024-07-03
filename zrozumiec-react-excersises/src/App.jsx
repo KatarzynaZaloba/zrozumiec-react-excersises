@@ -1,4 +1,8 @@
 function App() {
+  function handleClick() {
+    alert('klik!')
+  }
+
     return <>
         <h1>
             Gwiezdne wojny V
@@ -9,7 +13,9 @@ function App() {
         <p>
             Dobrzy walczą ze złymi. Trzeba wyłączyć pole siłowe.
         </p>
-        <button>
+        <button
+            onClick={handleClick}
+        >
             Pokaż spoiler
         </button>
         <p>
