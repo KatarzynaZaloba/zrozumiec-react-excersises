@@ -1,9 +1,17 @@
+import {useState} from "react";
+
 function App() {
-  function handleClick() {
-    alert('klik!')
+    const isSpoilerShownState = useState(false)
+
+    let isSpoilerShown = isSpoilerShownState[0];
+    const setIsSpoilerShown = isSpoilerShownState[1];
+
+    function handleClick() {
+        setIsSpoilerShown(true);
   }
 
-    return <>
+    return (
+        <>
         <h1>
             Gwiezdne wojny V
         </h1>
@@ -13,15 +21,12 @@ function App() {
         <p>
             Dobrzy walczą ze złymi. Trzeba wyłączyć pole siłowe.
         </p>
-        <button
-            onClick={handleClick}
-        >
+        <button onClick={handleClick}>
             Pokaż spoiler
         </button>
-        <p>
-            Vader okazuje się być ojcem Luka.
-        </p>
-    </>;
+        {isSpoilerShown && <p> Vader okazuje się być ojcem Luka.</p>}
+    </>
+);
 }
 
 export default App;
