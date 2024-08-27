@@ -3,6 +3,7 @@ import {useState} from "react";
 function App() {
     const [isSpoilerShown, setIsSpoilerShown] = useState(false);
     const [isWarningShown, setIsWarningShown] = useState(true);
+    const [numberOfLikes, setNumberOfLikes] = useState(50);
 
     function handleShownSpoilerClick() {
         setIsSpoilerShown(true);
@@ -14,6 +15,10 @@ function App() {
         setIsWarningShown(false);
     }
 
+    function handleLikeButtonClick() {
+        setNumberOfLikes(numberOfLikes + 1);
+    }
+
     return (
         <>
             <h1>
@@ -22,6 +27,16 @@ function App() {
             <h2>
                 Rok produkcji: 1980
             </h2>
+            <h2>
+                Liczba polubień: {numberOfLikes}
+            </h2>
+            <button onClick={handleLikeButtonClick}>Lubię to!</button>
+            <button onClick={() => {
+                setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 1)
+                setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 1)
+                setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 1)
+            }}>Kocham to!
+            </button>
             <h2>
                 Fabuła
             </h2>
