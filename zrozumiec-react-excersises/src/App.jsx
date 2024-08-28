@@ -19,6 +19,10 @@ function App() {
         setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 1);
     }
 
+    function handleLoveButtonClick() {
+        setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 3);
+    }
+
     return (
         <>
             <h1>
@@ -31,9 +35,7 @@ function App() {
                 Liczba polubień: {numberOfLikes}
             </h2>
             <button onClick={handleLikeButtonClick}>Lubię to!</button>
-            <button onClick={() => {
-                setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 3);
-            }}>Kocham to!
+            <button onClick={handleLoveButtonClick}>Kocham to!
             </button>
             <h2>
                 Fabuła
