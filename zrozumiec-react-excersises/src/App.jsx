@@ -16,7 +16,7 @@ function App() {
     }
 
     function handleLikeButtonClick() {
-        setNumberOfLikes(numberOfLikes + 1);
+        setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 1)
     }
 
     return (
