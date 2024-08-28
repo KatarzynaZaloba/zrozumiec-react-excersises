@@ -16,7 +16,7 @@ function App() {
     }
 
     function handleLikeButtonClick() {
-        setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 1)
+        setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 1);
     }
 
     return (
@@ -32,9 +32,7 @@ function App() {
             </h2>
             <button onClick={handleLikeButtonClick}>Lubię to!</button>
             <button onClick={() => {
-                setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 1)
-                setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 1)
-                setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 1)
+                setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 3);
             }}>Kocham to!
             </button>
             <h2>
