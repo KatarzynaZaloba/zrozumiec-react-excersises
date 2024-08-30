@@ -20,10 +20,7 @@ function App() {
     }
 
     function handleCloseWarningClick() {
-        setState((prevState) => {
-            prevState.isWarningShown = false;
-            return {...prevState};
-        });
+        setState((prevState) => ({...prevState, isWarningShown: false}));
     }
 
     function handleLikeButtonClick() {
