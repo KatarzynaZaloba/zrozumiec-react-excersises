@@ -14,9 +14,7 @@ function App() {
     const [state, setState] = useState(initialState);
 
     function handleShownSpoilerClick() {
-        setIsSpoilerShown(true);
-        console.log("handleClick!");
-        setIsWarningShown(false);
+        setState((prevState) => ({...prevState, isWarningShown: false, isSpoilerShown: true}));
     }
 
     function handleCloseWarningClick() {
