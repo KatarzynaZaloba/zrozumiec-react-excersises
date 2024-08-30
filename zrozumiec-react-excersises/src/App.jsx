@@ -22,7 +22,8 @@ function App() {
     }
 
     function handleLikeButtonClick() {
-        setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 1);
+        //setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 1);
+        setState((prevState) => ({...prevState, numberOfLikes: prevState.numberOfLikes + 1}));
     }
 
     function handleLoveButtonClick() {
