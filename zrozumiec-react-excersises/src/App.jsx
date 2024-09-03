@@ -1,30 +1,25 @@
 import {useState} from "react";
 
-const initialState = {
-    isSpoilerShown: false,
-    isWarningShown: true,
-    numberOfLikes: 50
-}
-
 function App() {
-
-    const [state, setState] = useState(initialState);
+    const [isSpoilerShown, setIsSpoilerShown] = useState(false);
+    const [isWarningShown, setIsWarningShown] = useState(true);
+    const [numberOfLikes, setNumberOfLikes] = useState(50);
 
     function handleShownSpoilerClick() {
-        setState((prevState) => ({...prevState, isWarningShown: false, isSpoilerShown: true}));
+        setIsSpoilerShown(true);
+        setIsWarningShown(false);
     }
 
     function handleCloseWarningClick() {
-        setState((prevState) => ({...prevState, isWarningShown: false}));
+       setIsWarningShown(false);
     }
 
     function handleLikeButtonClick() {
-        setState((prevState) => ({...prevState, numberOfLikes: prevState.numberOfLikes + 1}));
+        setNumberOfLikes((previousNumberOfLikes) => previousNumberOfLikes + 1);
     }
 
     function handleLoveButtonClick() {
-        //setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 3);
-        setState((prevState) => ({...prevState, numberOfLikes: prevState.numberOfLikes + 3}));
+        setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 3);
     }
 
     return (
@@ -36,7 +31,7 @@ function App() {
                 Rok produkcji: 1980
             </h2>
             <h2>
-                Liczba polubień: {state.numberOfLikes}
+                Liczba polubień: {numberOfLikes}
             </h2>
             <button onClick={handleLikeButtonClick}>Lubię to!</button>
             <button onClick={handleLoveButtonClick}>Kocham to!
@@ -44,7 +39,7 @@ function App() {
             <h2>
                 Fabuła
             </h2>
-            {state.isWarningShown && (
+            {isWarningShown && (
                 <p>
                     Uwaga! Opis fabuły zawiera spoilery!
                     <button onClick={handleCloseWarningClick}>x</button>
@@ -54,7 +49,7 @@ function App() {
                 Dobrzy walczą ze złymi. Trzeba wyłączyć pole siłowe.
             </p>
 
-            {state.isSpoilerShown ? (
+            {isSpoilerShown ? (
                 <p> Vader okazuje się być ojcem Luka.</p>
             ) : (
                 <button onClick={handleShownSpoilerClick}>
