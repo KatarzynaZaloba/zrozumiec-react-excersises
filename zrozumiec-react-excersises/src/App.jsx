@@ -7,9 +7,6 @@ const initialState = {
 }
 
 function App() {
-    const [isSpoilerShown, setIsSpoilerShown] = useState(false);
-    const [isWarningShown, setIsWarningShown] = useState(true);
-    const [numberOfLikes, setNumberOfLikes] = useState(50);
 
     const [state, setState] = useState(initialState);
 
@@ -22,12 +19,12 @@ function App() {
     }
 
     function handleLikeButtonClick() {
-        //setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 1);
         setState((prevState) => ({...prevState, numberOfLikes: prevState.numberOfLikes + 1}));
     }
 
     function handleLoveButtonClick() {
-        setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 3);
+        //setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 3);
+        setState((prevState) => ({...prevState, numberOfLikes: prevState.numberOfLikes + 3}));
     }
 
     return (
