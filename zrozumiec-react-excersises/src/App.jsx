@@ -1,9 +1,10 @@
 import {useState} from "react";
+import {LikesCounter} from "./components/LikesCounter.jsx";
 
 function App() {
     const [isSpoilerShown, setIsSpoilerShown] = useState(false);
     const [isWarningShown, setIsWarningShown] = useState(true);
-    const [numberOfLikes, setNumberOfLikes] = useState(50);
+
 
     function handleShownSpoilerClick() {
         setIsSpoilerShown(true);
@@ -11,16 +12,9 @@ function App() {
     }
 
     function handleCloseWarningClick() {
-       setIsWarningShown(false);
+        setIsWarningShown(false);
     }
 
-    function handleLikeButtonClick() {
-        setNumberOfLikes((previousNumberOfLikes) => previousNumberOfLikes + 1);
-    }
-
-    function handleLoveButtonClick() {
-        setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 3);
-    }
 
     return (
         <>
@@ -30,12 +24,7 @@ function App() {
             <h2>
                 Rok produkcji: 1980
             </h2>
-            <h2>
-                Liczba polubień: {numberOfLikes}
-            </h2>
-            <button onClick={handleLikeButtonClick}>Lubię to!</button>
-            <button onClick={handleLoveButtonClick}>Kocham to!
-            </button>
+            <LikesCounter/>
             <h2>
                 Fabuła
             </h2>
