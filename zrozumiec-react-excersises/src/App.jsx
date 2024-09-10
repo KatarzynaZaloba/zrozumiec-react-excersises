@@ -1,5 +1,6 @@
 import {LikesCounter} from "./components/LikesCounter.jsx";
 import {Plot} from "./components/Plot.jsx";
+import {Form} from "./components/Form.jsx";
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
             </h2>
             <LikesCounter/>
             <Plot/>
+            <Form/>
         </>
     );
 }
