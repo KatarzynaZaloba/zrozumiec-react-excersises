@@ -1,5 +1,8 @@
+import React, {useState} from 'react';
 export function Form() {
     const [review, setReview] = useState(null);
+
+    console.log(review);
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -12,6 +15,12 @@ export function Form() {
     }
     return (
         <>
+            {review && (
+                <article>
+                    <strong>{review.author}</strong>
+                    <p>{review.text}</p>
+                </article>
+            )}
             <h2>Dodaj recenzję</h2>
             <form onSubmit={handleSubmit}>
                 <div>
