@@ -37,6 +37,7 @@ export function Form() {
                         type="text"
                         id="author"
                         name="author"
+                        value={inputValue}
                         onChange={(event) => {
                         setInputValue(event.target.value);
                     }}/>
@@ -48,11 +49,12 @@ export function Form() {
                     <textarea
                         name="text"
                         id="text"
+                        value={textareaValue}
                         onChange={(event) => {
                             setTextareaValue(event.target.value);
                         }}></textarea>
                 </div>
-                <button type="submit">Dodaj</button>
+                <button type="submit" disabled={inputValue === "" || textareaValue === ""}>Dodaj</button>
             </form>
         </>
     )
