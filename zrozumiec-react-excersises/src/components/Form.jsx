@@ -1,32 +1,33 @@
 import {useState} from 'react';
+
+const initialReviews = [
+    {author: "Brian", text: "Bardzo fajny film", id: 1},
+    {author: "John", text: "Nie podobał mi się", id: 2},
+];
+
 export function Form() {
-    const [review, setReview] = useState(null);
     const [inputValue, setInputValue] = useState('');
     const [textareaValue, setTextareaValue] = useState('');
+    const [reviews, setReviews] = useState(initialReviews);
 
-    console.log(review);
+    const arrayOfNumbers = [1, 2, 3].map((number) => <li>Item{number}</li>);
 
+    const reviewsElement = reviews.map((r) => (
+        <article>
+            <strong>{r.author}</strong>
+            <p>{r.text}</p>
+        </article>
+    ));
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(event);
-
         const author = inputValue;
         const text = textareaValue;
-
-        setReview({author, text});
     }
-
-    console.log('wartość zmiennej stanowej input:', inputValue);
-    console.log('wartość zmiennej stanowej textarea:', textareaValue);
 
     return (
         <>
-            {review && (
-                <article>
-                    <strong>{review.author}</strong>
-                    <p>{review.text}</p>
-                </article>
-            )}
+            <hr/>
+            <ul>{reviewsElement}</ul>
             <h2>Dodaj recenzję</h2>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -39,8 +40,8 @@ export function Form() {
                         name="author"
                         value={inputValue}
                         onChange={(event) => {
-                        setInputValue(event.target.value);
-                    }}/>
+                            setInputValue(event.target.value);
+                        }}/>
                 </div>
                 <div>
                     <div>
