@@ -10,8 +10,6 @@ export function Form() {
     const [textareaValue, setTextareaValue] = useState('');
     const [reviews, setReviews] = useState(initialReviews);
 
-    const arrayOfNumbers = [1, 2, 3].map((number) => <li>Item{number}</li>);
-
     const reviewsElement = reviews.map((r) => (
         <article>
             <strong>{r.author}</strong>
