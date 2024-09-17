@@ -11,7 +11,7 @@ export function Form() {
     const [reviews, setReviews] = useState(initialReviews);
 
     const reviewsElement = reviews.map((r) => (
-        <article>
+        <article key={r.id}>
             <strong>{r.author}</strong>
             <p>{r.text}</p>
         </article>
@@ -20,6 +20,12 @@ export function Form() {
         event.preventDefault();
         const author = inputValue;
         const text = textareaValue;
+        const newReview = {author, text}
+
+        setReviews((prevReviews) => {
+            prevReviews.push(newReview);
+            return [...prevReviews];
+        })
     }
 
     return (
