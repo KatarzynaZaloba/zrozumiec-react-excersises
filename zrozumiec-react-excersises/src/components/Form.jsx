@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import {Review} from "./Review.jsx";
 
 const initialReviews = [
     {author: "Brian", text: "Bardzo fajny film", id: 1},
@@ -11,11 +12,13 @@ export function Form() {
     const [reviews, setReviews] = useState(initialReviews);
 
     const reviewsElement = reviews.map((r) => (
-        <article key={r.id}>
-            <strong>{r.author}</strong>
-            <p>{r.text}</p>
-        </article>
+        <Review
+            author={r.author}
+            text={r.text}
+            key={r.id}
+        />
     ));
+
     function handleSubmit(event) {
         event.preventDefault();
         const author = inputValue;
