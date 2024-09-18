@@ -20,12 +20,14 @@ export function Form() {
         event.preventDefault();
         const author = inputValue;
         const text = textareaValue;
-        const newReview = {author, text}
 
         setReviews((prevReviews) => {
-            prevReviews.push(newReview);
-            return [...prevReviews];
-        })
+            return [{
+                author, text, id: prevReviews.length + 1
+            }, ...prevReviews];
+        });
+        setInputValue('');
+        setTextareaValue('');
     }
 
     return (
