@@ -1,8 +1,16 @@
 import {LikesCounter} from "./components/LikesCounter.jsx";
 import {Plot} from "./components/Plot.jsx";
 import {Form} from "./components/Form.jsx";
+import {Reviews} from "./components/Reviews.jsx";
+import {useState} from "react";
+
+const initialReviews = [
+    {author: "Brian", text: "Bardzo fajny film", id: 1},
+    {author: "John", text: "Nie podobał mi się", id: 2},
+];
 
 function App() {
+    const [reviews, setReviews] = useState(initialReviews);
 
     return (
         <>
@@ -14,7 +22,10 @@ function App() {
             </h2>
             <LikesCounter/>
             <Plot/>
-            <Form/>
+            <Reviews reviews={reviews}/>
+            <Form onReviewSumbit={(alertText) => {
+                alert(alertText);
+            }}/>
         </>
     );
 }
