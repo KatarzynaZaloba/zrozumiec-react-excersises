@@ -23,8 +23,12 @@ function App() {
             <LikesCounter/>
             <Plot/>
             <Reviews reviews={reviews}/>
-            <Form onReviewSumbit={(alertText) => {
-                alert(alertText);
+            <Form onReviewSumbit={(author, text) => {
+                setReviews((prevReviews) => {
+                    return [{
+                        author, text, id: prevReviews.length + 1
+                    }, ...prevReviews];
+                });
             }}/>
         </>
     );
