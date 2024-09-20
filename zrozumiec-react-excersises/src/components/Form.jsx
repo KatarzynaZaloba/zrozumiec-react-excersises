@@ -9,12 +9,7 @@ export function Form({onReviewSumbit}) {
         const author = inputValue;
         const text = textareaValue;
 
-        // setReviews((prevReviews) => {
-        //     return [{
-        //         author, text, id: prevReviews.length + 1
-        //     }, ...prevReviews];
-        // });
-        onReviewSumbit('TESTOWY ALERT');
+        onReviewSumbit(author, text);
         setInputValue('');
         setTextareaValue('');
     }
