@@ -12,6 +12,15 @@ const initialReviews = [
 function App() {
     const [reviews, setReviews] = useState(initialReviews);
     const [counterShown, setCounterShown] = useState(true);
+    const [numberOfLikes, setNumberOfLikes] = useState(50);
+
+    function handleLikeButtonClick() {
+        setNumberOfLikes((previousNumberOfLikes) => previousNumberOfLikes + 1);
+    }
+
+    function handleLoveButtonClick() {
+        setNumberOfLikes(previousNumberOfLikes => previousNumberOfLikes + 3);
+    }
 
     return (
         <>
@@ -22,7 +31,12 @@ function App() {
             }}>
                 {counterShown ? "Schowaj counter" : "Pokaż counter"}
             </button>
-            {counterShown && <LikesCounter/>}
+            {counterShown && (
+                <LikesCounter numberOfLikes={numberOfLikes}
+                              onLikeButtonClick={handleLikeButtonClick}
+                              onLoveButtonClick={handleLoveButtonClick}
+                />
+            )}
             <Plot/>
             <Reviews reviews={reviews}/>
             <Form onReviewSumbit={(author, text) => {
